@@ -57,7 +57,7 @@ const useReferralJob = (s3Paths) => {
 
       try {
         const res = await axios.post(
-          'process.env.REACT_APP_STATUS_API_URL',
+          process.env.REACT_APP_STATUS_API_URL,
           { job_id: jobId },
           { headers: { 'Content-Type': 'application/json' } }
         );
