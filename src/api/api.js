@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getPresignedUrl = async (username, password, filename) => {
   const response = await axios.post(
-    'https://rgkt7dbkjg.execute-api.ap-south-1.amazonaws.com/Stage/document_upload',
+    process.env.REACT_APP_CHAT_UPLOAD_URL,
     { filename },
     {
       auth: { username, password },
@@ -18,16 +18,16 @@ export const uploadFileToS3 = async (presignedUrl, file) => {
 };
 
 export const triggerFaiss = async () => {
-  await axios.get('https://rgkt7dbkjg.execute-api.ap-south-1.amazonaws.com/Stage/Textract');
+  await axios.get(process.evn.REACT_APP_CHAT_TEXTRACT_URL);
 };
 
 export const getStatus = async (docId) => {
-  const response = await axios.post('https://rgkt7dbkjg.execute-api.ap-south-1.amazonaws.com/Stage/document_status', { doc_id: docId });
+  const response = await axios.post(process.env.REACT_APP_CHAT_PROCESS_URL, { doc_id: docId });
   return response.data.status;
 };
 
 export const sendQuestion = async (docId, question) => {
-  const response = await axios.post('https://rgkt7dbkjg.execute-api.ap-south-1.amazonaws.com/Stage/generate_chat', {
+  const response = await axios.post(process.env.REACT_APP_CHAT_URL, {
     doc_id: docId,
     query: question,
   });
@@ -36,7 +36,7 @@ export const sendQuestion = async (docId, question) => {
 
 export const deleteBucketContent = async (bucketName) => {
   try {
-    const response = await axios.post('https://rgkt7dbkjg.execute-api.ap-south-1.amazonaws.com/Stage/delete-function', { bucket_name: bucketName });
+    const response = await axios.post(process.evn.REACT_APP_CHAT_DELETE_URL, { bucket_name: bucketName });
     console.log("Deleted Successfully")
     return response.data;
   } catch (error) {
