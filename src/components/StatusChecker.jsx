@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { getStatus } from '../api/api';
-import '../style/StatusChecker.css';
+import '../styles/StatusChecker.css';
 
 const StatusChecker = ({ docId, onCompleted }) => {
   useEffect(() => {
