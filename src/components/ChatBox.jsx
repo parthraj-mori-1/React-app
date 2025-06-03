@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { sendQuestion } from '../api/api';
-import '../style/ChatBox.css'; // we’ll define this next
+import '../styles/ChatBox.css'; // we’ll define this next
 
 const ChatBox = ({ docId }) => {
   const [question, setQuestion] = useState('');
