@@ -3,9 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Operisoft Genai Portfolio  </title>
+  <title>Operisoft Genai Portfolio</title>
+  <style>
+    .logo-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 999;
+    }
+
+    .logo-container img {
+      height: 40px;
+      object-fit: contain;
+    }
+  </style>
 </head>
 <body>
+  <div class="logo-container">
+    <img src="%PUBLIC_URL%/logo.png" alt="Logo" />
+  </div>
   <div id="root"></div> <!-- This is where React mounts your app -->
 </body>
 </html>
