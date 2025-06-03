@@ -18,7 +18,7 @@ export const uploadFileToS3 = async (presignedUrl, file) => {
 };
 
 export const triggerFaiss = async () => {
-  await axios.get(process.evn.REACT_APP_CHAT_TEXTRACT_URL);
+  await axios.get(process.env.REACT_APP_CHAT_TEXTRACT_URL);
 };
 
 export const getStatus = async (docId) => {
