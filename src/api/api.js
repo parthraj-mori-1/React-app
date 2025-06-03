@@ -36,7 +36,7 @@ export const sendQuestion = async (docId, question) => {
 
 export const deleteBucketContent = async (bucketName) => {
   try {
-    const response = await axios.post(process.evn.REACT_APP_CHAT_DELETE_URL, { bucket_name: bucketName });
+    const response = await axios.post(process.env.REACT_APP_CHAT_DELETE_URL, { bucket_name: bucketName });
     console.log("Deleted Successfully")
     return response.data;
   } catch (error) {
