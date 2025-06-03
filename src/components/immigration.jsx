@@ -58,9 +58,15 @@ const ImmigrationExtractor = () => {
           setResult(response.data);
           setIsSubmitting(false);
         } else if (response.status === 202) {
-          setStatusMessages(prev => [...prev, response.data.message || '⏳ Processing...']);
-          setTimeout(() => setAttempts(a => a + 1), attempts === 1 ? 6000 : 15000);
-        }
+  const message = response.data.message || '⏳ Processing...';
+  setStatusMessages(prev => {
+    if (!prev.includes(message)) {
+      return [...prev, message];
+    }
+    return prev;
+  });
+  setTimeout(() => setAttempts(a => a + 1), attempts === 1 ? 6000 : 15000);
+}
       } catch (err) {
         setError(`❌ Error fetching status: ${err.response?.data || err.message}`);
         setIsSubmitting(false);
