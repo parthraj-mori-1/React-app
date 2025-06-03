@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { uploadFileToS3, triggerFaiss, deleteBucketContent} from '../api/api';
-import '../style/FileUpload.css';
+import '../styles/FileUpload.css';
 
 const FileUpload = ({ presignedurl, onUploadComplete }) => {
   const [file, setFile] = useState(null);
