@@ -13,7 +13,7 @@ const ImmigrationExtractor = () => {
   const [error, setError] = useState('');
   const [attempts, setAttempts] = useState(0);
 
-  const MAX_ATTEMPTS = 6;
+  const MAX_ATTEMPTS = 10;
 
   const handleSubmit = async () => {
     if (!s3Path.trim()) {
